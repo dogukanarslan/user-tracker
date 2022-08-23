@@ -32,3 +32,7 @@ a {
   text-decoration: none;
   color: var(--link-color);
 }
+
+table {
+  border-collapse: collapse;
+}
