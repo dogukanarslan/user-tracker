@@ -1,0 +1,14 @@
+.navbar {
+  background: var(--primary);
+  justify-content: space-between;
+  padding: var(--navbar-padding-y) var(--navbar-padding-x);
+}
+
+.navbar-nav {
+  display: flex;
+}
+
+.navbar-nav .nav-link {
+  padding-right: var(--navbar-nav-link-padding-x);
+  padding-left: var(--navbar-nav-link-padding-x);
+}
