@@ -20,8 +20,10 @@ export const UserList = connect(mapStateToProps)((props: UserListProps) => {
   const { dispatch, users } = props;
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+    if (users.users.length === 0) {
+      dispatch(fetchUsers());
+    }
+  }, [dispatch, users]);
 
   return (
     <table className="user-list">
