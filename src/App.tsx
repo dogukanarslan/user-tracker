@@ -2,13 +2,15 @@ import React from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/Navbar/Navbar';
-import { Employees } from './pages/Employees/Employees';
-import { CreateEmployee } from './pages/CreateEmployee/CreateEmployee';
+import { Users } from './pages/Users/Users';
+import { CreateUser } from './pages/CreateUser/CreateUser';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import employeesReducer from './redux/slices/employeesSlice';
+import usersReducer from './redux/slices/usersSlice';
 
-const store = configureStore({ reducer: { employees: employeesReducer } });
+const store = configureStore({ reducer: { users: usersReducer } });
+
+export type AppDispatch = typeof store.dispatch;
 
 function App() {
   return (
@@ -17,9 +19,9 @@ function App() {
         <Navbar />
         <div className="App">
           <Switch>
-            <Route path="/employees" component={Employees} />
-            <Route path="/create-employee" component={CreateEmployee} />
-            <Route path="/" render={() => <Redirect to="/employees" />} />
+            <Route path="/users" component={Users} />
+            <Route path="/create-user" component={CreateUser} />
+            <Route path="/" render={() => <Redirect to="/users" />} />
           </Switch>
         </div>
       </HashRouter>

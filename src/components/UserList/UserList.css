@@ -1,9 +1,9 @@
-.employee-list {
+.user-list {
     width: 100%;
 }
 
-.employee-list th,
-.employee-list td {
+.user-list th,
+.user-list td {
   border: 1px solid #000;
   padding: 0.75rem;
 }
