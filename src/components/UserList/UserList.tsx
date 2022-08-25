@@ -13,7 +13,7 @@ const mapStateToProps = (state: any) => {
 
 interface UserListProps {
   dispatch: AppDispatch;
-  users: IUser[];
+  users: { users: IUser[] };
 }
 
 export const UserList = connect(mapStateToProps)((props: UserListProps) => {
@@ -33,7 +33,7 @@ export const UserList = connect(mapStateToProps)((props: UserListProps) => {
         </tr>
       </thead>
       <tbody>
-        {users.map((user) => (
+        {users.users.map((user) => (
           <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.username}</td>

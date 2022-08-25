@@ -7,19 +7,19 @@ export const fetchUsers = createAsyncThunk('FETCH_USERS', () => {
     .then((data) => data);
 });
 
-const initialState: IUser[] = [];
+const initialState: { users: IUser[] } = { users: [] };
 
 export const usersSlice = createSlice({
   name: 'usersSlice',
   initialState,
   reducers: {
     addUser: (state, action) => {
-      return [...state, action.payload];
+      state.users = [...state.users, action.payload];
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      return action.payload;
+      state.users = action.payload;
     });
   },
 });
