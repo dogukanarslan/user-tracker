@@ -6,6 +6,7 @@ interface ButtonProps {
   block?: boolean;
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
+  [propertyName: string]: any;
 }
 
 export const Button = (props: ButtonProps) => {
