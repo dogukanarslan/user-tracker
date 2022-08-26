@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createUser } from '../../redux/slices/usersSlice';
+import { Button } from '../../components/Button/Button';
 
 export const CreateUser = connect()((props: any) => {
   const { dispatch } = props;
@@ -29,26 +30,42 @@ export const CreateUser = connect()((props: any) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="w-50 mx-auto text-center" onSubmit={handleSubmit}>
+      <div>
+        <div>
+          <label>Name</label>
+        </div>
+        <input
+          className="input"
+          type="text"
+          value={name}
+          onChange={handleNameChange}
+          placeholder="Name"
+        />
+      </div>
+      <div>
+        <label>Username</label>
+      </div>
       <input
-        type="text"
-        value={name}
-        onChange={handleNameChange}
-        placeholder="Name"
-      />
-      <input
+        className="input"
         type="text"
         value={username}
         onChange={handleUsernameChange}
         placeholder="Username"
       />
+      <div>
+        <label>Email</label>
+      </div>
       <input
+        className="input"
         type="email"
         value={email}
         onChange={handleEmailChange}
         placeholder="Email"
       />
-      <input type="submit" />
+      <div>
+        <Button type="submit">Create</Button>
+      </div>
     </form>
   );
 });
