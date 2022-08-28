@@ -2,26 +2,37 @@ import './Table.css';
 
 interface TableProps {
   data: any[];
+  columns: { heading: string; value: string }[];
 }
 
 export const Table = (props: TableProps) => {
-  const { data } = props;
+  const { data, columns } = props;
 
   return (
     <table className="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Email</th>
+          {columns.map((column) => (
+            <th key={column.value}>{column.heading}</th>
+          ))}
         </tr>
       </thead>
       <tbody>
-        {data.map((el) => (
-          <tr key={el.id}>
-            <td>{el.name}</td>
-            <td>{el.username}</td>
-            <td>{el.email}</td>
+        {data.map((item) => (
+          <tr key={item.id}>
+            {columns.map((column) => {
+              // Check if data is nested
+              if (column.value.indexOf('.') !== -1) {
+                const keys = column.value.split('.');
+                let value = item;
+                keys.forEach((key) => {
+                  value = value[key];
+                });
+                return <td key={item.id + column.value}>{value}</td>;
+              }
+
+              return <td key={item.id + column.value}>{item[column.value]}</td>;
+            })}
           </tr>
         ))}
       </tbody>

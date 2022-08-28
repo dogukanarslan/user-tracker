@@ -23,5 +23,17 @@ export const Users = connect(mapStateToProps)((props: UsersProps) => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  return <Table data={users.users} />;
+  return (
+    <Table
+      columns={[
+        { heading: 'Name', value: 'name' },
+        { heading: 'Username', value: 'username' },
+        { heading: 'Email', value: 'email' },
+        { heading: 'City', value: 'address.city' },
+        { heading: 'Lat', value: 'address.geo.lat' },
+        { heading: 'Lng', value: 'address.geo.lng' },
+      ]}
+      data={users.users}
+    />
+  );
 });
