@@ -6,6 +6,7 @@
   --navbar-padding-y: 1rem;
   --navbar-nav-link-padding-x: 0.5rem;
   --table-header-color: #777;
+  --btn-border-radius: 4px;
 }
 
 body {
