@@ -35,7 +35,7 @@ export const usersSlice = createSlice({
         state.users = action.payload;
       })
       .addCase(createUser.fulfilled, (state, action) => {
-        state.users = [action.payload, ...state.users];
+        state.users = [...state.users, action.payload];
       });
   },
 });
